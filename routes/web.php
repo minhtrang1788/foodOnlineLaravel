@@ -96,3 +96,9 @@ Route::get('/admin/getOrders/{status}', 'CartController@getOrders');
 Route::get('/admin/showProduct', 'ProductController@showProduct');
 Route::get('/checkout', 'CartController@checkout');
 Route::get('/admin/actionOrder/{order}', 'CartController@actionOrder');
+Route::get('/admin/showSliders', 'SliderController@showSliders');
+Route::get('/admin/createSlider', function () {
+    return view('/admin/createSlider');
+});
+Route::post('/admin/createSlider', 'SliderController@createSlider');
+Route::get('/admin/deleteSlider/{id}', 'SliderController@deleteSlider');

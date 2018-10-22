@@ -12,4 +12,5 @@ class slider extends Model
     static public function getSliders(){
       return static::latest()->take(3)->get();
     }
+    
 }

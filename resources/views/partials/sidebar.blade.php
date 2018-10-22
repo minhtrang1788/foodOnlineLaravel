@@ -25,8 +25,8 @@
                  </li>
                  <li><a><i class="fa fa-table"></i> Banner <span class="fa fa-chevron-down"></span></a>
                    <ul class="nav child_menu">
-                     <li><a  href="/admin/showBanners">Show</a></li>
-                     <li><a  href="/admin/createBanner">Create Banner</a></li>
+                     <li><a  href="/admin/showSliders">Show</a></li>
+                     <li><a  href="/admin/createSlider">Create Banner</a></li>
                    </ul>
                  </li>
                  <li><a><i class="fa fa-bar-chart-o"></i> Parners <span class="fa fa-chevron-down"></span></a>

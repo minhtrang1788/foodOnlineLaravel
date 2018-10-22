@@ -76,7 +76,14 @@
       });
       var $status = 0;
       $(document).ready(function() {
-        $status = '/'+document.getElementById('status_order').value;
+        try {
+       // Sử dụng biến message chưa được định nghĩa
+          $status = '/'+document.getElementById('status_order').value;
+       } catch (e){
+            $status = 0;
+           console.log('error get status');
+       }
+
         $url = '{{url('admin/getOrders')}}'+$status;
         $('#table_orders').DataTable({
             processing: true,

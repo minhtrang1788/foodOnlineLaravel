@@ -127,7 +127,7 @@ class SessionController extends Controller
         'email'=>request('email'),
         'about'=>request('about'),
         'role'=>1,
-        'password'=>request('password'),
+        'password' => bcrypt(request('password')),
         'avatar'=>$image_url,
       );
       User::create($data);
