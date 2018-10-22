@@ -7,6 +7,9 @@ use App\Slider;
 use Images;
 class SliderController extends Controller
 {
+    public function __construct(){
+      return $this->middleware('auth')->except('');
+    }
     public function showSliders(){
       $sliders = Slider::all();
       return view('admin/showSliders', compact('sliders'));
@@ -42,7 +45,7 @@ class SliderController extends Controller
          $img = Images::make($thumbnailpath)->resize(1180, 500);
          $img->save($thumbnailpath);
 
-         $image = Slider::create(array('url'=>'/storage/profile_images/thumbnail/'.$filenametostore));
+         $image = Slider::create(array('url'=>'storage/profile_images/thumbnail/'.$filenametostore));
         }
       Session::flash('message','Add slider success!');
       return redirect('admin/showSliders');

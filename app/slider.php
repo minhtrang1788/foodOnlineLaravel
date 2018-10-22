@@ -10,7 +10,7 @@ class slider extends Model
     protected $fillable = ['url'];
 
     static public function getSliders(){
-      return static::latest()->take(3)->get();
+      return static::latest()->get();
     }
-    
+
 }

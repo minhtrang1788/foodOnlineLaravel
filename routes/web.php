@@ -87,10 +87,6 @@ Route::get('/admin/createUser',function () {
     return view('/admin/createUser');
 });
 Route::post('/admin/createUser', 'SessionController@createUser');
-Route::get('/admin/showBanner', 'SliderController@showBanner');
-Route::get('/admin/createBanner', 'SliderController@createBanner');
-Route::get('/admin/showPartners', 'ListParnerController@showPartners');
-Route::get('/admin/createPartners', 'ListParnerController@createPartners');
 Route::get('/admin/showOrders/{status}', 'CartController@showOrders');
 Route::get('/admin/getOrders/{status}', 'CartController@getOrders');
 Route::get('/admin/showProduct', 'ProductController@showProduct');
@@ -102,3 +98,10 @@ Route::get('/admin/createSlider', function () {
 });
 Route::post('/admin/createSlider', 'SliderController@createSlider');
 Route::get('/admin/deleteSlider/{id}', 'SliderController@deleteSlider');
+
+Route::get('/admin/showPartners', 'ListPartnerController@showPartners');
+Route::get('/admin/createPartner', function () {
+    return view('/admin/createPartner');
+});
+Route::post('/admin/createPartner', 'ListPartnerController@createPartner');
+Route::get('/admin/deletePartner/{id}', 'ListPartnerController@deletePartner');

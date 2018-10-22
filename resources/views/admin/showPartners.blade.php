@@ -7,7 +7,7 @@
                  <div class="container-fluid">
                    <div class="x_panel" >
                    <h2 >All Slider images</h2>
-                   @if(count($sliders))
+                   @if(count($partners))
 
                      <table class="table table-bordered" id="table_sliders">
                         <thead>
@@ -17,11 +17,11 @@
                               <td>Action</td>
                            </tr>
                         </thead>
-                        @foreach($sliders as $slider)
+                        @foreach($partners as $partner)
                         <tr>
-                           <td>{{$slider->id}}</td>
-                           <td><img src="{{$slider->url}}" width="300px" height="100px"/></td>
-                           <td><a href="/admin/deleteSlider/'{{$slider->url}}'" class="btn btn-xs btn-primary" onclick="javascript:return confirmDel()"><i class="glyphicon glyphicon-del"></i> Delete</a></td>
+                           <td>{{$partner->id}}</td>
+                           <td colspan="3"><img src="{{$partner->url}}" width="200px" height="80px"/></td>
+                           <td><a href="/admin/deletePartner/{{$partner->id}}" class="btn btn-xs btn-primary" onclick="javascript:return confirmDel()"><i class="glyphicon glyphicon-del"></i> Delete</a></td>
 
                         </tr>
                         @endforeach

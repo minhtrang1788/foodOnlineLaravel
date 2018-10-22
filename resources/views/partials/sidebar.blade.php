@@ -32,7 +32,7 @@
                  <li><a><i class="fa fa-bar-chart-o"></i> Parners <span class="fa fa-chevron-down"></span></a>
                    <ul class="nav child_menu">
                      <li><a  href="/admin/showPartners">Show Partners</a></li>
-                     <li><a  href="/admin/createPartners">Create Partners</a></li>
+                     <li><a  href="/admin/createPartner">Create Partners</a></li>
                   </ul>
                  </li>
                  <li><a><i class="fa fa-clone"></i>Order <span class="fa fa-chevron-down"></span></a>
