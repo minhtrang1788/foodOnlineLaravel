@@ -59,7 +59,8 @@
      function exit_alert(){
        document.getElementById("cart_alert").style.display = "none";
      };
-     function delProduct(order_id,row_index){
+     function delProduct(order_id,row_index,money){
+      $totalMoney =  parseInt(document.getElementById('total_result_price').value);
        alert('Are you sure that you want delete this product?');
        $.ajax({
          type:'GET',
@@ -67,6 +68,9 @@
          data:{order_id:order_id},
          success:function(data){
            document.getElementById("cart_row_"+row_index).style.display = 'none';
+           $totalMoney = $totalMoney - money;
+           document.getElementById('total_result_price').value=$totalMoney ;
+           $('#text_total_result_price').text($totalMoney);
          }
        });
      };

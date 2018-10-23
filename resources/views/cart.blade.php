@@ -78,7 +78,7 @@
 								<p class="cart_total_price" id="cart_total_price_{{$order->id}}"><?php echo '$'.($product->price * $order->quantity); ?></p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" id="delProduct" onclick="javascript: return delProduct({{$order->id}},{{$row_index}})">X</a>
+								<a class="cart_quantity_delete" id="delProduct" onclick="javascript: return delProduct({{$order->id}},{{$row_index}},{{($product->price * $order->quantity)}})">X</a>
 							</td>
 						</tr>
               {{Form::close()}}

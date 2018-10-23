@@ -14,12 +14,9 @@ class CartController extends Controller
       $this->middleware('auth')->except('');
     }
     public function addToCart(){
-    dd(request('product_slug'));
-    $product = Product::Where(['slug'=>request('product_slug')])->first();
-
-     $cart = Cart::where(['product_id'=>$product->id,'user_id'=>auth()->id()])->first();
-
-      if(count($cart)){
+      $product = Product::Where(['slug'=>request('product_slug')])->first();
+      $cart = Cart::where(['product_id'=>$product->id,'user_id'=>auth()->id(),'status'=>0])->first();
+      if(isset($cart)){
         $quantity = $cart->quantity + 1 ;
         $cart->update(['quantity'=>$quantity]);
       } else {
@@ -27,7 +24,6 @@ class CartController extends Controller
       }
 
       return response()->json(['message'=>'Product added to cart!']);
-
     }
 
     public function viewCart(){

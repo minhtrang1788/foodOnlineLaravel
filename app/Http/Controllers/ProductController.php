@@ -16,7 +16,7 @@ class ProductController extends Controller
     }
     public function index(){
 
-      $products = Product::where('isActived',1)->latest()->get();
+      $products = Product::where('isActived',1)->latest()->paginate(3);
       return view('product',compact('products'));
     }
 

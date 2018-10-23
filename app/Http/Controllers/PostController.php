@@ -9,6 +9,8 @@ use Session;
 use Images;
 use App\Image;
 use Yajra\Datatables\Datatables;
+use App\Http\Resources\Post as PostResource;
+use App\Http\Resources\PostCollection;
 class PostController extends Controller
 {
     //
@@ -16,15 +18,20 @@ class PostController extends Controller
       return $this->middleware('auth')->except('viewPost','viewPostsCat');
     }
     public function  viewPost(Post $id){
-        $post = $id;
-        return view('blogSingle',compact('post'));
+
+      $post =  new PostResource($id);
+            //return json_decode($post,true);
+
+      return view('blogSingle',compact('post'));
+      //return view('blogSingle')->with('post', json_decode($post, true));
     }
 
     public function viewPostsCat(Categories $cat){
       $id = $cat->id;
-      $posts = Post::where(array('category_id'=>$id,'is_public'=>1))->latest()->get();
+      $posts = Post::where(array('category_id'=>$id,'is_public'=>1))->latest()->paginate(1);
 
-      return view('blog',compact('posts'));
+  //  return new PostCollection($posts);
+        return view('blog',compact('posts'));
 
     }
 

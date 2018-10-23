@@ -82,12 +82,7 @@
 
 					<!-- Pagination -->
 					 <ul class="pagination pull-right">
-					  	<li class="disabled"><a href="#">&laquo;</a></li>
-					  	<li class="active"><a href="#">1 <span class="sr-only"></span></a></li>
-					  	<li><a href="#">2</a></li>
-					  	<li><a href="#">3</a></li>
-					  	<li><a href="#">4</a></li>
-					  	<li><a href="#">»</a></li>
+					  	<li class="disabled">@if (isset($posts)){{($posts->links())}} @endif</li>
 					</ul>	<!-- End of /.pagination -->
 				</div>	<!-- End of /.col-md-9 -->
 

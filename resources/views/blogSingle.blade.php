@@ -29,8 +29,7 @@
 					        <div class="blog-icon">
 					        	<i class="fa  fa-pencil"></i>
 					        </div>
-
-									@if(count($post))
+									@if(isset($post))
 										<?php $c = $post->Category;
 												$u = $post->User;
 												$comments = $post->Comment;
