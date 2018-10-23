@@ -24,14 +24,16 @@ Route::get('/', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
-
+Route::get('/404', function () {
+    return view('404page');
+});
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/loginClient', function () {
     return view('login');
 });
-Route::get('/logoutClient', 'SessionController@logout');
+Route::get('/logout', 'SessionController@logout');
 Route::post('/loginClient', 'SessionController@login');
 Route::post('/signupClient', 'SessionController@createUserGuess');
 Route::get('/product', 'ProductController@index');

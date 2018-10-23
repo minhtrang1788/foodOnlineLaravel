@@ -11,7 +11,10 @@ use Images;
 use Yajra\Datatables\Datatables;
 class SessionController extends Controller
 {
-    //
+
+  public function __construct(){
+    return $this->middleware('auth')->except('login');
+  }
     public function login(){
       $this->validate(request(),[
         'email'=>'required|email',

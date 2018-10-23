@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     //
     public function __construct(){
-      return $this->middleware('auth')->except('');
+      return $this->middleware('auth')->except('viewPost','viewPostsCat');
     }
     public function  viewPost(Post $id){
         $post = $id;

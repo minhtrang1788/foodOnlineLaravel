@@ -56,7 +56,7 @@
 						@else
 						<li>
 							Hello {{Auth()->user()->name}}
-							<a href="/logoutClient">
+							<a href="/logout">
 							<i class="fa fa-user"></i>
 								Logout
 							</a>

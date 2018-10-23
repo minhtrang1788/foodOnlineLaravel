@@ -14,7 +14,7 @@ class CartController extends Controller
       $this->middleware('auth')->except('');
     }
     public function addToCart(){
-
+    dd(request('product_slug'));
     $product = Product::Where(['slug'=>request('product_slug')])->first();
 
      $cart = Cart::where(['product_id'=>$product->id,'user_id'=>auth()->id()])->first();
@@ -62,26 +62,10 @@ class CartController extends Controller
 
   }
   public function getOrders($status){
-    $orders = Cart::where('status',$status)->get();
-
-    return Datatables::of($orders)
-        ->addColumn('user', function ($orders) {
-            $user = $orders->user;
-            return $user->name;
-        })
-        ->addColumn('product', function ($orders) {
-            $product = $orders->Product;
-            return $product->name;
-        })
-        ->addColumn('action', function ($orders) {
-          $action ='';
-          if($orders->status == 0)  $action ='check out';
-          if($orders->status == 1)  $action ='Prepare';
-          if($orders->status == 2)  $action ='Shipping';
-          if($orders->status == 3)  $action ='Finished';
-            return '<a href="/admin/actionOrder/'. $orders->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>'.$action.'</a>';
-        })
-        ->make(true);
+    $orders = Cart::where('status', $status)
+              ->with('user')
+              ->with('product');
+    return Datatables::of($orders)->make(true);
   }
 
   public function checkout(){

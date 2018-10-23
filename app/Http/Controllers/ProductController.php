@@ -11,6 +11,9 @@ use Yajra\Datatables\Datatables;
 class ProductController extends Controller
 {
     //
+    public function __construct(){
+      return $this->middleware('auth')->except('index','viewProduct');
+    }
     public function index(){
 
       $products = Product::where('isActived',1)->latest()->get();
@@ -167,5 +170,5 @@ class ProductController extends Controller
       Session::flash('message','Delete product success!');
       return view('admin/showProduct');
     }
-    
+
 }
